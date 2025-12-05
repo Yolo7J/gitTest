@@ -1,7 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using MyMvcApp.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Add DbContext
+builder.Services.AddDbContext<CivilizationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("CivilizationConnection")));
 
 var app = builder.Build();
 

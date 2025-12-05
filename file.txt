@@ -1,1 +1,293 @@
-Initial
+===============================================================================
+CIVILIZATION VI BACKEND - GIT COMMIT LOG
+===============================================================================
+
+GitHub Repository: https://github.com/Yolo7J/gitTest
+Branch: feature-work
+Project: MyMvcApp - ASP.NET Core MVC with Civilization VI Entities
+
+===============================================================================
+PHASE 1: PROJECT INITIALIZATION
+===============================================================================
+
+# Initial Setup
+$ cd /d
+$ mkdir gitTest
+$ cd gitTest
+$ git init
+$ echo "Initial" > file.txt
+$ git add .
+$ git commit -m "Initial commit: add file1.txt"
+[master (root-commit) 90c140e] Initial commit: add file1.txt
+
+$ git checkout -b feature-work
+Switched to a new branch 'feature-work'
+
+# Create ASP.NET Core MVC Project
+$ dotnet new mvc -n MyMvcApp
+$ cd MyMvcApp
+The template "ASP.NET Core Web App (Model-View-Controller)" was created successfully.
+
+$ git add .
+$ git commit -m "Added MVC proj"
+[feature-work 9d4b83b] Added MVC proj
+ 91 files changed, 83266 insertions(+)
+
+# Add .gitignore
+$ cd ..
+$ touch .gitignore
+$ git add .gitignore
+$ git commit -m "Added .gitignore file + modified file.txt"
+[feature-work 34ff7a1] Added .gitignore file + modified file.txt
+
+# Verify Build
+$ cd MyMvcApp
+$ dotnet build
+Build succeeded in 10.9s
+
+===============================================================================
+PHASE 2: ENTITY MODELS (5 Commits)
+===============================================================================
+
+--------------------------------------------------------------------------------
+COMMIT 1: Civilization & Leader Entities
+--------------------------------------------------------------------------------
+$ git add Models/Civilization.cs Models/Leader.cs
+$ git commit -m "Add Civilization and Leader entities with proper relationships"
+[feature-work 52cca99] Add Civilization and Leader entities with proper relationships
+ 2 files changed, 58 insertions(+)
+ create mode 100644 MyMvcApp/Models/Civilization.cs
+ create mode 100644 MyMvcApp/Models/Leader.cs
+
+Entities Created:
+- Civilization.cs (with unique abilities, colors, starting bias)
+- Leader.cs (with agendas, traits, foreign key to Civilization)
+
+--------------------------------------------------------------------------------
+COMMIT 2: City & Unit Entities
+--------------------------------------------------------------------------------
+$ git add Models/City.cs Models/Unit.cs
+$ git commit -m "Add City entity with yields and Unit entity with combat mechanics"
+[feature-work e8df9da] Add City entity with yields and Unit entity with combat mechanics
+ 2 files changed, 87 insertions(+)
+ create mode 100644 MyMvcApp/Models/City.cs
+ create mode 100644 MyMvcApp/Models/Unit.cs
+
+Entities Created:
+- City.cs (with all 6 yields, population, districts, defense)
+- Unit.cs (with combat strength, movement, production cost)
+
+--------------------------------------------------------------------------------
+COMMIT 3: Technology & CivicCard Entities
+--------------------------------------------------------------------------------
+$ git add Models/Technology.cs Models/CivicCard.cs
+$ git commit -m "Add Technology and CivicCard entities for progression systems"
+[feature-work 5d3c5d6] Add Technology and CivicCard entities for progression systems
+ 2 files changed, 94 insertions(+)
+ create mode 100644 MyMvcApp/Models/Technology.cs
+ create mode 100644 MyMvcApp/Models/CivicCard.cs
+
+Entities Created:
+- Technology.cs (tech tree with eras, costs, boost mechanics)
+- CivicCard.cs (civic cards, government policies, unlocks)
+
+--------------------------------------------------------------------------------
+COMMIT 4: Building & Wonder Entities
+--------------------------------------------------------------------------------
+$ git add Models/Building.cs Models/Wonder.cs
+$ git commit -m "Add Building and Wonder entities with yields and special effects"
+[feature-work ca254f9] Add Building and Wonder entities with yields and special effects
+ 2 files changed, 107 insertions(+)
+ create mode 100644 MyMvcApp/Models/Building.cs
+ create mode 100644 MyMvcApp/Models/Wonder.cs
+
+Entities Created:
+- Building.cs (buildings/districts with all yields, requirements)
+- Wonder.cs (world wonders with effects, placement requirements)
+
+--------------------------------------------------------------------------------
+COMMIT 5: Resource & Terrain Entities
+--------------------------------------------------------------------------------
+$ git add Models/Resource.cs Models/Terrain.cs
+$ git commit -m "Add Resource and Terrain entities for map generation"
+[feature-work 4207a66] Add Resource and Terrain entities for map generation
+ 2 files changed, 96 insertions(+)
+ create mode 100644 MyMvcApp/Models/Resource.cs
+ create mode 100644 MyMvcApp/Models/Terrain.cs
+
+Entities Created:
+- Resource.cs (bonus, luxury, strategic resources with amenities)
+- Terrain.cs (terrain types, movement costs, yields, features)
+
+===============================================================================
+PHASE 3: CONSTANTS (3 Commits)
+===============================================================================
+
+--------------------------------------------------------------------------------
+COMMIT 6: Constants Folder with 7 Classes
+--------------------------------------------------------------------------------
+$ mkdir Constants
+$ git add Constants/
+$ git commit -m "Add Constants folder with comprehensive game constants"
+[feature-work 66c80d3] Add Constants folder with comprehensive game constants
+ 7 files changed, 345 insertions(+)
+ create mode 100644 MyMvcApp/Constants/BuildingConstants.cs
+ create mode 100644 MyMvcApp/Constants/CivilizationConstants.cs
+ create mode 100644 MyMvcApp/Constants/GameConstants.cs
+ create mode 100644 MyMvcApp/Constants/ResourceConstants.cs
+ create mode 100644 MyMvcApp/Constants/TechnologyConstants.cs
+ create mode 100644 MyMvcApp/Constants/TerrainConstants.cs
+ create mode 100644 MyMvcApp/Constants/UnitConstants.cs
+
+Constants Created (7 classes, 353 total constants):
+- CivilizationConstants.cs (40 constants - types, biases, difficulties, victories)
+- UnitConstants.cs (45 constants - unit types, classes, combat modifiers)
+- TechnologyConstants.cs (20 constants - eras, boost mechanics)
+- BuildingConstants.cs (38 constants - districts, yields, maintenance)
+- ResourceConstants.cs (55 constants - resource types, amenities, accumulation)
+- TerrainConstants.cs (48 constants - terrain types, movement, defense)
+- GameConstants.cs (65 constants - game limits, age system, loyalty)
+
+--------------------------------------------------------------------------------
+COMMIT 7: Documentation
+--------------------------------------------------------------------------------
+$ git add README_CIV6_MODELS.md
+$ git commit -m "Add comprehensive documentation for Civilization VI models"
+[feature-work da32031] Add comprehensive documentation for Civilization VI models
+ 1 file changed, 61 insertions(+)
+ create mode 100644 MyMvcApp/README_CIV6_MODELS.md
+
+Documentation Created:
+- README_CIV6_MODELS.md (overview of all entities, constants, next steps)
+
+--------------------------------------------------------------------------------
+COMMIT 8: CivicConstants (Additional)
+--------------------------------------------------------------------------------
+$ git add Constants/CivicConstants.cs
+$ git commit -m "Add CivicConstants for government and policy mechanics"
+[feature-work 44e7a96] Add CivicConstants for government and policy mechanics
+ 1 file changed, 48 insertions(+)
+ create mode 100644 MyMvcApp/Constants/CivicConstants.cs
+
+Constants Created:
+- CivicConstants.cs (42 constants - governments, policy slots, legacy bonuses)
+
+===============================================================================
+PHASE 4: DATABASE INTEGRATION (3 Commits)
+===============================================================================
+
+# Install Entity Framework Core Packages
+$ dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 9.0.0
+$ dotnet add package Microsoft.EntityFrameworkCore.Design --version 9.0.0
+$ dotnet add package Microsoft.EntityFrameworkCore.Tools --version 9.0.0
+
+--------------------------------------------------------------------------------
+COMMIT 9: DbContext Configuration
+--------------------------------------------------------------------------------
+$ mkdir Data
+$ git add Data/ appsettings.json Program.cs MyMvcApp.csproj
+$ git commit -m "Add CivilizationDbContext with Entity Framework Core configuration"
+[feature-work 6c1292f] Add CivilizationDbContext with Entity Framework Core configuration
+ 4 files changed, 73 insertions(+)
+ create mode 100644 MyMvcApp/Data/CivilizationDbContext.cs
+
+Database Configuration:
+- CivilizationDbContext.cs (DbContext with 10 DbSets, relationships, indexes)
+- appsettings.json (connection string to DESKTOP-TBKG26G\SQLEXPRESS)
+- Program.cs (DbContext registration in DI container)
+
+Connection String:
+Server=DESKTOP-TBKG26G\SQLEXPRESS;Database=Civilization;Trusted_Connection=True
+
+--------------------------------------------------------------------------------
+COMMIT 10: Database Seeding
+--------------------------------------------------------------------------------
+$ git add Data/DbSeeder.cs Program.cs
+$ git commit -m "Add database seeding with comprehensive sample data"
+[feature-work b119cac] Add database seeding with comprehensive sample data
+ 2 files changed, 847 insertions(+)
+ create mode 100644 MyMvcApp/Data/DbSeeder.cs
+
+Seeding Data (39 total records):
+- 5 Civilizations: Rome, Greece, Egypt, China, Japan
+- 5 Leaders: Trajan, Pericles, Cleopatra, Qin Shi Huang, Hojo Tokimune
+- 5 Technologies: Pottery, Animal Husbandry, Mining, Bronze Working, The Wheel
+- 3 Civic Cards: Code of Laws, Craftsmanship, Foreign Trade
+- 5 Units: Warrior, Spearman, Archer, Settler, Builder
+- 4 Buildings: Campus, Holy Site, Granary, Monument
+- 3 Wonders: Pyramids, Stonehenge, Great Library
+- 4 Resources: Wheat, Iron, Spices, Horses
+- 5 Terrains: Grassland, Plains, Desert, Hills, Coast
+
+--------------------------------------------------------------------------------
+COMMIT 11: Migrations & Database Creation
+--------------------------------------------------------------------------------
+$ dotnet build
+Build succeeded in 2.8s
+
+$ dotnet ef migrations add InitialCreate
+Build started...
+Build succeeded.
+Done. To undo this action, use 'ef migrations remove'
+
+$ dotnet ef database update
+Build started...
+Build succeeded.
+Applying migration '20251205090000_InitialCreate'.
+Done.
+
+$ git add Migrations/ Data/CivilizationDbContext.cs
+$ git commit -m "Add EF Core migrations and update database"
+[feature-work d899682] Add EF Core migrations and update database
+ 3 files changed, 678 insertions(+)
+ create mode 100644 MyMvcApp/Migrations/20251205090000_InitialCreate.cs
+ create mode 100644 MyMvcApp/Migrations/20251205090000_InitialCreate.Designer.cs
+ create mode 100644 MyMvcApp/Migrations/CivilizationDbContextModelSnapshot.cs
+
+Database Schema:
+- 10 Tables Created (with proper foreign keys and indexes)
+- Database "Civilization" created on SQL Server
+- All seed data inserted successfully
+
+===============================================================================
+FINAL SUMMARY
+===============================================================================
+
+Total Commits: 12
+- Phase 1: Project Setup (3 commits)
+- Phase 2: Entity Models (5 commits) - 10 entities created
+- Phase 3: Constants (3 commits) - 8 classes, 353 constants
+- Phase 4: Database Integration (3 commits) - EF Core, seeding, migrations
+
+Entities: 10 (Civilization, Leader, City, Unit, Technology, CivicCard, Building, Wonder, Resource, Terrain)
+Constants Classes: 8 (CivilizationConstants, UnitConstants, TechnologyConstants, BuildingConstants, ResourceConstants, TerrainConstants, GameConstants, CivicConstants)
+Total Constants: 353
+Seed Records: 39
+Database Tables: 10
+
+GitHub Repository: https://github.com/Yolo7J/gitTest
+SQL Server: DESKTOP-TBKG26G\SQLEXPRESS
+Database: Civilization
+
+===============================================================================
+GIT COMMAND NOTES
+===============================================================================
+
+--set-upstream vs -u:
+Both are IDENTICAL - they do exactly the same thing!
+
+$ git push --set-upstream origin feature-work
+$ git push -u origin feature-work
+
+"-u" is simply a SHORT FORM (alias) of "--set-upstream"
+
+What they do:
+- Sets the upstream (tracking) branch for your local branch
+- After using -u once, you can just use "git push" without specifying the remote/branch
+- Links your local branch to the remote branch for future push/pull operations
+
+Example:
+First time:  git push -u origin feature-work
+Future:      git push  (no need to specify origin or branch name)
+
+===============================================================================

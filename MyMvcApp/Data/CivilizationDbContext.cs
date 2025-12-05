@@ -60,7 +60,7 @@ namespace MyMvcApp.Data
                 .HasIndex(t => new { t.Era, t.Name });
 
             modelBuilder.Entity<CivicCard>()
-                .HasIndex(cc => new { cc.Era, t.Name });
+                .HasIndex(cc => new { cc.Era, cc.Name });
         }
     }
 }
